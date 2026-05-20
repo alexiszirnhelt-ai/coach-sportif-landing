@@ -1,0 +1,61 @@
+---
+import Icon from '../ui/Icon.astro';
+
+const currentYear = new Date().getFullYear();
+
+const links = [
+  {
+    label: 'Contact',
+    href: '#contact',
+    icon: 'mail',
+  },
+  {
+    label: 'Insta',
+    href: 'https://instagram.com',
+    icon: 'instagram',
+    external: true,
+  },
+  {
+    label: 'Adresse',
+    href: 'https://maps.google.com',
+    icon: 'map-pin',
+    external: true,
+  },
+  {
+    label: 'Mentions légales',
+    href: '/mentions-legales',
+    icon: null,
+  },
+] as const;
+---
+
+<footer class="bg-neutral-950">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-neutral-400 sm:flex-row">
+    <!-- Copyright -->
+    <p>
+      © {currentYear} Jane Doe · Coach sportive
+    </p>
+
+    <!-- Liens -->
+    <nav aria-label="Liens secondaires">
+      <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+        {links.map((link) => {
+          const isExternal = 'external' in link && link.external;
+          return (
+            <li>
+              <a
+                href={link.href}
+                class="flex items-center gap-1.5 transition-colors hover:text-neutral-100"
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+              >
+                {link.icon && <Icon name={link.icon} class="h-4 w-4" />}
+                <span>{link.label}</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+</footer>
