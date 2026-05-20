@@ -1,5 +1,18 @@
 ---
 import '../styles/global.css';
+import Seo from '../components/seo/Seo.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'Jane Doe — Coach sportive certifiée à Nancy',
+  description = "Coach sportive diplômée d'État avec 8 ans d'expérience. Programmes personnalisés, suivi hebdomadaire et méthode éprouvée pour transformer durablement votre corps et vos habitudes.",
+  image,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -9,7 +22,32 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Jane Doe — Coach sportive</title>
+
+    <Seo title={title} description={description} image={image} />
+
+    <!-- Données structurées (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      '@id': Astro.site?.toString(),
+      name: 'Jane Doe — Coach sportive',
+      description: 'Coach sportive certifiée à Nancy',
+      image: `${Astro.site?.toString().replace(/\/$/, '')}/og-image.png`,
+      url: Astro.site?.toString(),
+      telephone: '+33-X-XX-XX-XX-XX',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Nancy',
+        addressRegion: 'Grand Est',
+        addressCountry: 'FR',
+      },
+      priceRange: '€€',
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '200',
+      },
+    })} />
   </head>
   <body class="bg-neutral-950 text-neutral-100 antialiased">
     <slot />
