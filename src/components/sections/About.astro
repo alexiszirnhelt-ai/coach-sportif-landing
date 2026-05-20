@@ -1,8 +1,11 @@
 ---
+import Reveal from '../ui/Reveal.vue';
+
 const coachImageUrl = "https://images.unsplash.com/photo-1567013275689-c179a874478f?q=80&w=700&auto=format&fit=crop";
 ---
 
 <section id="apropos" class="border-b border-neutral-800">
+    <Reveal client:visible>
   <div class="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[280px_1fr] md:gap-12 lg:grid-cols-[340px_1fr] lg:gap-16">
     <!-- Photo ronde -->
     <div class="mx-auto md:mx-0">
@@ -43,4 +46,5 @@ const coachImageUrl = "https://images.unsplash.com/photo-1567013275689-c179a8744
       </div>
     </div>
   </div>
+  </Reveal>
 </section>
