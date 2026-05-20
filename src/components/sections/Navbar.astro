@@ -1,4 +1,6 @@
 ---
+import MobileMenu from '../ui/MobileMenu.vue';
+
 const navLinks = [
   { label: 'Accueil', href: '#accueil' },
   { label: 'Services', href: '#services' },
@@ -18,7 +20,7 @@ const navLinks = [
       <span>Jane Doe</span>
     </a>
 
-    <!-- Liens de navigation -->
+    <!-- Liens desktop (cachés sur mobile) -->
     <ul class="hidden items-center gap-8 md:flex">
       {navLinks.map((link) => (
         <li>
@@ -32,12 +34,15 @@ const navLinks = [
       ))}
     </ul>
 
-    <!-- Bouton Réserver -->
+    <!-- Bouton Réserver (desktop uniquement) -->
     <a
       href="#contact"
-      class="rounded-full border border-neutral-700 px-5 py-2 text-sm font-medium transition-colors hover:bg-neutral-100 hover:text-neutral-900"
+      class="hidden rounded-full border border-neutral-700 px-5 py-2 text-sm font-medium transition-colors hover:bg-neutral-100 hover:text-neutral-900 md:inline-block"
     >
       Réserver
     </a>
+
+    <!-- Menu mobile (caché sur desktop) -->
+    <MobileMenu client:load links={navLinks} />
   </nav>
 </header>
