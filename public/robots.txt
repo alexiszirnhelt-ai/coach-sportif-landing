@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jane-doe-coaching.vercel.app/sitemap-index.xml
+Sitemap: https://coach-sportif-landing.vercel.app/sitemap-index.xml
