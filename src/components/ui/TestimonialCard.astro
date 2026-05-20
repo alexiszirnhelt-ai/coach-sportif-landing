@@ -1,0 +1,44 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  name: string;
+  context: string;
+  avatarUrl: string;
+  quote: string;
+  rating?: number;
+}
+
+const { name, context, avatarUrl, quote, rating = 5 } = Astro.props;
+---
+
+<article class="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
+  <!-- Étoiles -->
+  <div class="flex items-center gap-1 text-yellow-400" aria-label={`Note : ${rating} sur 5`}>
+    {Array.from({ length: rating }).map(() => (
+      <Icon name="star" class="h-4 w-4" />
+    ))}
+  </div>
+
+  <!-- Citation -->
+  <blockquote class="mt-4 text-neutral-200">
+    <p class="leading-relaxed">"{quote}"</p>
+  </blockquote>
+
+  <!-- Auteur -->
+  <footer class="mt-6 flex items-center gap-3">
+    <img
+      src={avatarUrl}
+      alt={`Portrait de ${name}`}
+      class="h-12 w-12 rounded-full object-cover"
+      loading="lazy"
+      decoding="async"
+      width="48"
+      height="48"
+    />
+    <div>
+      <p class="text-sm font-semibold text-neutral-100">{name}</p>
+      <p class="text-xs text-neutral-400">{context}</p>
+    </div>
+  </footer>
+</article>
