@@ -38,6 +38,7 @@ onUnmounted(() => {
   <button
     type="button"
     class="flex h-10 w-10 items-center justify-center rounded-lg border border-neutral-800 text-neutral-100 transition-colors hover:bg-neutral-900 md:hidden"
+    :class="{ 'mobile-menu-open': isOpen }"
     aria-label="Ouvrir le menu"
     @click="open"
   >
