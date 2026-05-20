@@ -1,0 +1,19 @@
+---
+import ContactForm from '../ui/ContactForm.vue';
+---
+
+<section id="contact" class="border-b border-neutral-800">
+  <div class="mx-auto max-w-2xl px-6 py-20">
+    <div class="mb-10 space-y-4 text-center">
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+        Prêt·e à <span class="text-neutral-400">commencer</span> ?
+      </h2>
+      <p class="text-neutral-300">
+        Réservez votre <strong class="text-neutral-100">séance découverte gratuite</strong>
+        et discutons ensemble de vos objectifs. Aucun engagement.
+      </p>
+    </div>
+
+    <ContactForm client:visible />
+  </div>
+</section>
