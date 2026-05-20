@@ -1,0 +1,43 @@
+---
+const navLinks = [
+  { label: 'Accueil', href: '#accueil' },
+  { label: 'Services', href: '#services' },
+  { label: 'Tarifs', href: '#tarifs' },
+  { label: 'Avis', href: '#avis' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<header class="border-b border-neutral-800">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 text-lg font-semibold">
+      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-700">
+        <span class="h-3 w-3 rounded-sm bg-neutral-100"></span>
+      </span>
+      <span>John Doe</span>
+    </a>
+
+    <!-- Liens de navigation -->
+    <ul class="hidden items-center gap-8 md:flex">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-sm text-neutral-300 transition-colors hover:text-white"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Bouton Réserver -->
+    <a
+      href="#contact"
+      class="rounded-full border border-neutral-700 px-5 py-2 text-sm font-medium transition-colors hover:bg-neutral-100 hover:text-neutral-900"
+    >
+      Réserver
+    </a>
+  </nav>
+</header>
