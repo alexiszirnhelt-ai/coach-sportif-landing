@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onUnmounted } from 'vue';
+import { ref, watch, onUnmounted } from "vue";
 
 interface NavLink {
   label: string;
@@ -22,14 +22,14 @@ function close() {
 
 // Bloque le scroll du body quand le menu est ouvert
 watch(isOpen, (newValue) => {
-  if (typeof document === 'undefined') return;
-  document.body.style.overflow = newValue ? 'hidden' : '';
+  if (typeof document === "undefined") return;
+  document.body.style.overflow = newValue ? "hidden" : "";
 });
 
 // Nettoyage si le composant est démonté alors que le menu est ouvert
 onUnmounted(() => {
-  if (typeof document === 'undefined') return;
-  document.body.style.overflow = '';
+  if (typeof document === "undefined") return;
+  document.body.style.overflow = "";
 });
 </script>
 
@@ -49,7 +49,11 @@ onUnmounted(() => {
       stroke="currentColor"
       stroke-width="2"
     >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
     </svg>
   </button>
 
@@ -71,16 +75,22 @@ onUnmounted(() => {
     >
       <div class="flex h-full flex-col">
         <!-- Header de l'overlay : logo + croix -->
-        <div class="flex items-center justify-between border-b border-neutral-800 px-6 py-4">
+        <div
+          class="flex items-center justify-between border-b border-neutral-800 px-6 py-4"
+        >
           <a
             href="/"
-            class="flex items-center gap-2 text-lg font-semibold text-neutral-100"
+            class="flex items-center"
+            aria-label="Jane Doe — Accueil"
             @click="close"
           >
-            <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-700">
-              <span class="h-3 w-3 rounded-sm bg-neutral-100"></span>
-            </span>
-            <span>Jane Doe</span>
+            <img
+              src="/logo.svg"
+              alt="Jane Doe Coaching"
+              class="h-20 w-auto"
+              width="80"
+              height="80"
+            />
           </a>
 
           <button
@@ -97,7 +107,11 @@ onUnmounted(() => {
               stroke="currentColor"
               stroke-width="2"
             >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
