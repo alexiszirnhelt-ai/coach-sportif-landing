@@ -1,0 +1,44 @@
+---
+import FaqItem from '../ui/FaqItem.vue';
+
+const questions = [
+  {
+    question: "Combien de temps faut-il pour voir des résultats ?",
+    answer:
+      "Les premiers résultats apparaissent généralement entre 4 et 6 semaines avec un suivi régulier. Pour une transformation durable, on parle de 3 à 6 mois minimum, en alliant entraînement et bonne nutrition.",
+  },
+  {
+    question: "Faut-il être en forme pour commencer ?",
+    answer:
+      "Absolument pas ! Mes programmes s'adaptent à tous les niveaux, des grands débutants aux sportifs confirmés. On commence toujours par un bilan pour adapter l'intensité à votre point de départ.",
+  },
+  {
+    question: "Le coaching en ligne est-il aussi efficace qu'en présentiel ?",
+    answer:
+      "Oui, à condition d'être bien encadré. Avec des programmes personnalisés, des visios hebdomadaires et un suivi rigoureux, les résultats sont comparables au présentiel pour la majorité des objectifs.",
+  },
+];
+---
+
+<section class="border-b border-neutral-800">
+  <div class="mx-auto max-w-3xl px-6 py-20">
+    <div class="mb-12 space-y-4 text-center">
+      <p class="text-sm font-medium uppercase tracking-widest text-neutral-400">
+        FAQ
+      </p>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+        Vos questions, <span class="text-neutral-400">mes réponses</span>
+      </h2>
+    </div>
+
+    <div class="space-y-3">
+      {questions.map((item) => (
+        <FaqItem
+          client:visible
+          question={item.question}
+          answer={item.answer}
+        />
+      ))}
+    </div>
+  </div>
+</section>
