@@ -1,0 +1,24 @@
+---
+interface Props {
+  number: number;
+  title: string;
+  description: string;
+}
+
+const { number, title, description } = Astro.props;
+---
+
+<div class="relative flex flex-col items-center text-center">
+  <!-- Cercle avec numéro -->
+  <div class="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900 text-lg font-bold text-neutral-100">
+    {number}
+  </div>
+
+  <!-- Titre + description -->
+  <h3 class="mt-5 text-base font-semibold text-neutral-100">
+    {title}
+  </h3>
+  <p class="mt-2 max-w-220px text-sm leading-relaxed text-neutral-400">
+    {description}
+  </p>
+</div>

@@ -1,0 +1,59 @@
+---
+import StepCard from '../ui/StepCard.astro';
+
+const steps = [
+  {
+    number: 1,
+    title: 'Bilan initial',
+    description: "Échange sur vos objectifs, votre historique sportif et vos contraintes du quotidien.",
+  },
+  {
+    number: 2,
+    title: 'Programme sur-mesure',
+    description: "Plan d'entraînement et conseils nutritionnels adaptés à votre profil et vos disponibilités.",
+  },
+  {
+    number: 3,
+    title: 'Suivi hebdomadaire',
+    description: "Séances encadrées, ajustements réguliers et soutien continu pour rester motivé·e.",
+  },
+  {
+    number: 4,
+    title: 'Résultats durables',
+    description: "Une transformation qui dure, avec des habitudes ancrées et l'autonomie pour continuer seul·e.",
+  },
+];
+---
+
+<section class="border-b border-neutral-800">
+  <div class="mx-auto max-w-6xl px-6 py-20">
+    <div class="mb-16 max-w-2xl space-y-4">
+      <p class="text-sm font-medium uppercase tracking-widest text-neutral-400">
+        Méthode
+      </p>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+        Une démarche en <span class="text-neutral-400">4 étapes</span>
+      </h2>
+    </div>
+
+    <!-- Conteneur des étapes -->
+    <div class="relative">
+      <!-- Ligne de connexion (desktop uniquement) -->
+      <div
+        class="pointer-events-none absolute left-0 right-0 top-7 hidden h-px bg-neutral-800 lg:block"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Grille d'étapes -->
+      <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step) => (
+          <StepCard
+            number={step.number}
+            title={step.title}
+            description={step.description}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
