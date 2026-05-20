@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  icon: 'dumbbell' | 'run' | 'laptop';
+  title: string;
+  description: string;
+}
+
+const { icon, title, description } = Astro.props;
+---
+
+<article class="group rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 transition-colors hover:border-neutral-700 hover:bg-neutral-900">
+  <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-neutral-800 text-neutral-100 transition-colors group-hover:bg-neutral-700">
+    <Icon name={icon} class="h-6 w-6" />
+  </div>
+
+  <h3 class="mt-5 text-lg font-semibold text-neutral-100">
+    {title}
+  </h3>
+
+  <p class="mt-2 text-sm leading-relaxed text-neutral-400">
+    {description}
+  </p>
+</article>

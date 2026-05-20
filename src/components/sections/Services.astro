@@ -1,0 +1,47 @@
+---
+import ServiceCard from '../ui/ServiceCard.astro';
+
+const services = [
+  {
+    icon: 'dumbbell',
+    title: 'Renforcement musculaire',
+    description:
+      "Programmes ciblés pour développer votre force et sculpter votre silhouette. Séances en salle ou à domicile, avec ou sans matériel.",
+  },
+  {
+    icon: 'run',
+    title: 'Préparation physique',
+    description:
+      "Améliorez votre endurance, votre cardio et vos performances sportives. Idéal pour les amateurs de course, trail ou sports collectifs.",
+  },
+  {
+    icon: 'laptop',
+    title: 'Coaching en ligne',
+    description:
+      "Suivi à distance avec programmes personnalisés, visios hebdomadaires et plateforme dédiée. Flexibilité maximale, résultats garantis.",
+  },
+] as const;
+---
+
+<section id="services" class="border-b border-neutral-800">
+  <div class="mx-auto max-w-6xl px-6 py-20">
+    <div class="mb-12 max-w-2xl space-y-4">
+      <p class="text-sm font-medium uppercase tracking-widest text-neutral-400">
+        Services
+      </p>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+        Trois formats, un objectif : <span class="text-neutral-400">vos résultats</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => (
+        <ServiceCard
+          icon={service.icon}
+          title={service.title}
+          description={service.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>
