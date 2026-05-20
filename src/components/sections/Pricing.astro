@@ -1,0 +1,72 @@
+---
+import PricingCard from '../ui/PricingCard.astro';
+
+const plans = [
+  {
+    name: 'Découverte',
+    price: '49€',
+    period: '/ séance',
+    description: 'Idéal pour tester le coaching et définir vos objectifs.',
+    features: [
+      '1 séance individuelle de 1h',
+      'Bilan personnalisé',
+      'Conseils nutrition de base',
+      'Sans engagement',
+    ],
+    popular: false,
+  },
+  {
+    name: 'Engagement',
+    price: '349€',
+    period: '/ mois',
+    description: 'La formule la plus complète pour des résultats durables.',
+    features: [
+      '4 séances individuelles par mois',
+      'Programme sur-mesure mis à jour',
+      'Plan nutritionnel détaillé',
+      'Suivi WhatsApp 7j/7',
+      'Bilan mensuel approfondi',
+    ],
+    popular: true,
+  },
+  {
+    name: 'En ligne',
+    price: '149€',
+    period: '/ mois',
+    description: 'Le coaching à distance, où que vous soyez.',
+    features: [
+      'Programmes vidéo personnalisés',
+      'Visio hebdomadaire (45 min)',
+      'Plateforme de suivi dédiée',
+      'Réponses sous 24h',
+    ],
+    popular: false,
+  },
+];
+---
+
+<section id="tarifs" class="border-b border-neutral-800">
+  <div class="mx-auto max-w-6xl px-6 py-20">
+    <div class="mb-16 max-w-2xl space-y-4">
+      <p class="text-sm font-medium uppercase tracking-widest text-neutral-400">
+        Tarifs
+      </p>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+        Choisissez la formule qui <span class="text-neutral-400">vous convient</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      {plans.map((plan) => (
+        <PricingCard
+          name={plan.name}
+          price={plan.price}
+          period={plan.period}
+          description={plan.description}
+          features={plan.features}
+          popular={plan.popular}
+        />
+      ))}
+    </div>
+  </div>
+</section>
