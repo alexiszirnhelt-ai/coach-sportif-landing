@@ -1,0 +1,47 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalUrl?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  description,
+  image = '/og-image.png',
+  canonicalUrl,
+  type = 'website',
+} = Astro.props;
+
+// URL absolue du site (utile pour OG image et canonical)
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const fullCanonicalUrl = canonicalUrl ?? `${siteUrl}${Astro.url.pathname}`;
+const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+---
+
+<!-- Meta tags de base -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={fullCanonicalUrl} />
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp...) -->
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImageUrl} />
+<meta property="og:url" content={fullCanonicalUrl} />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:site_name" content="Jane Doe — Coach sportive" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImageUrl} />
+
+<!-- Autres meta utiles -->
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Jane Doe" />
+<meta name="theme-color" content="#0a0a0a" />
