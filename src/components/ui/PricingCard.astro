@@ -1,0 +1,73 @@
+---
+import Icon from './Icon.astro';
+import Button from './Button.astro';
+
+interface Props {
+  name: string;
+  price: string;
+  period?: string;
+  description: string;
+  features: string[];
+  popular?: boolean;
+}
+
+const {
+  name,
+  price,
+  period = '',
+  description,
+  features,
+  popular = false,
+} = Astro.props;
+---
+
+<article
+  class:list={[
+    'relative flex flex-col rounded-2xl border bg-neutral-900/50 p-8',
+    popular
+      ? 'border-blue-500/60 ring-1 ring-blue-500/30'
+      : 'border-neutral-800',
+  ]}
+>
+  {popular && (
+    <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-blue-500 px-3 py-1 text-xs font-medium text-white">
+      Populaire
+    </span>
+  )}
+
+  <!-- Header de la carte -->
+  <div>
+    <h3 class="text-lg font-semibold text-neutral-100">{name}</h3>
+    <p class="mt-2 text-sm text-neutral-400">{description}</p>
+  </div>
+
+  <!-- Prix -->
+  <div class="mt-6 flex items-baseline gap-1">
+    <span class="text-4xl font-bold tracking-tight text-neutral-100">{price}</span>
+    {period && <span class="text-sm text-neutral-400">{period}</span>}
+  </div>
+
+  <!-- Liste des features -->
+  <ul class="mt-6 flex-1 space-y-3">
+    {features.map((feature) => (
+      <li class="flex items-start gap-2 text-sm text-neutral-300">
+        <Icon
+          name="check"
+          class={`mt-0.5 h-4 w-4 shrink-0 ${popular ? 'text-blue-400' : 'text-neutral-500'}`}
+        />
+        <span>{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  <!-- CTA -->
+  <div class="mt-8">
+    <Button
+      href="#contact"
+      variant={popular ? 'primary' : 'secondary'}
+      class="w-full"
+    >
+      Choisir
+    </Button>
+  </div>
+</article>
