@@ -1,8 +1,10 @@
 ---
 import ContactForm from '../ui/ContactForm.vue';
+import Reveal from '../ui/Reveal.vue';
 ---
 
 <section id="contact" class="border-b border-neutral-800">
+  <Reveal client:visible>
   <div class="mx-auto max-w-2xl px-6 py-20">
     <div class="mb-10 space-y-4 text-center">
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
@@ -16,4 +18,5 @@ import ContactForm from '../ui/ContactForm.vue';
 
     <ContactForm client:visible />
   </div>
+  </Reveal>
 </section>
