@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+/* === Scroll comportement global === */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respecte la préférence "réduire les animations" */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* === Décalage pour la navbar sticky === */
+/* Toutes les sections avec un id qui sert d'ancre */
+section[id] {
+  scroll-margin-top: 5rem; /* 80px, légèrement plus que la hauteur de la navbar */
+}
