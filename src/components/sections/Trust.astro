@@ -1,0 +1,27 @@
+---
+import Icon from '../ui/Icon.astro';
+
+const badges = [
+  { icon: 'certified', label: 'Certifié' },
+  { icon: 'users', label: '+200 clients' },
+  { icon: 'star', label: '4.9/5' },
+  { icon: 'calendar', label: "8 ans d'exp." },
+] as const;
+---
+
+<section class="border-b border-neutral-800">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-4 gap-x-8 px-6 py-6">
+    <p class="text-xs font-medium uppercase tracking-widest text-neutral-500">
+      Ils me font confiance
+    </p>
+
+    <ul class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-neutral-200">
+      {badges.map((badge) => (
+        <li class="flex items-center gap-2">
+          <Icon name={badge.icon} class="h-4 w-4 text-neutral-400" />
+          <span>{badge.label}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
