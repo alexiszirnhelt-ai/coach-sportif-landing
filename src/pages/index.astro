@@ -11,9 +11,15 @@ import Testimonials from '../components/sections/Testimonials.astro';
 import Faq from '../components/sections/Faq.astro';
 import ContactCta from '../components/sections/ContactCta.astro';
 import Footer from '../components/sections/Footer.astro';
+
+const ogImage = 'https://images.unsplash.com/photo-1567013275689-c179a874478f?q=80&w=1200&h=630&fit=crop&auto=format';
 ---
 
-<Layout>
+<Layout
+  title="Jane Doe — Coach sportive certifiée à Nancy"
+  description="Coach sportive diplômée d'État avec 8 ans d'expérience. Programmes personnalisés, suivi hebdomadaire et méthode éprouvée. Réservez votre séance découverte gratuite."
+  image={ogImage}
+>
   <Navbar />
   <Hero />
   <Trust />
