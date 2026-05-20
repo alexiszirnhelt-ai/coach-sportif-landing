@@ -1,0 +1,49 @@
+---
+import TestimonialCard from '../ui/TestimonialCard.astro';
+
+const testimonials = [
+  {
+    name: 'Léo Dupont',
+    context: 'Suivi 6 mois · Perte de poids',
+    avatarUrl:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
+    quote:
+      "Jane a transformé mon rapport au sport. En 6 mois, j'ai perdu 12 kilos et surtout, j'ai pris des habitudes durables. Son écoute et sa bienveillance font toute la différence.",
+    rating: 5,
+  },
+  {
+    name: 'Léa Depierre',
+    context: 'Coaching en ligne · Préparation marathon',
+    avatarUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop',
+    quote:
+      "Préparation marathon réussie grâce à Jane ! Le format en ligne s'adapte parfaitement à mon emploi du temps, et les programmes sont d'une précision incroyable. Je recommande à 100%.",
+    rating: 5,
+  },
+];
+---
+
+<section id="avis" class="border-b border-neutral-800">
+  <div class="mx-auto max-w-6xl px-6 py-20">
+    <div class="mb-12 max-w-2xl space-y-4">
+      <p class="text-sm font-medium uppercase tracking-widest text-neutral-400">
+        Témoignages
+      </p>
+      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+        Ils ont <span class="text-neutral-400">franchi le cap</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {testimonials.map((testimonial) => (
+        <TestimonialCard
+          name={testimonial.name}
+          context={testimonial.context}
+          avatarUrl={testimonial.avatarUrl}
+          quote={testimonial.quote}
+          rating={testimonial.rating}
+        />
+      ))}
+    </div>
+  </div>
+</section>
