@@ -1,5 +1,6 @@
 ---
 import TestimonialCard from '../ui/TestimonialCard.astro';
+import Reveal from '../ui/Reveal.vue';
 
 const testimonials = [
   {
@@ -24,12 +25,13 @@ const testimonials = [
 ---
 
 <section id="avis" class="border-b border-neutral-800">
-  <div class="mx-auto max-w-6xl px-6 py-20">
-    <div class="mb-12 max-w-2xl space-y-4">
-      <p class="text-sm font-medium uppercase tracking-widest text-neutral-400">
-        Témoignages
-      </p>
-      <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+  <Reveal client:visible>
+    <div class="mx-auto max-w-6xl px-6 py-20">
+      <div class="mb-12 max-w-2xl space-y-4">
+        <p class="text-sm font-medium uppercase tracking-widest text-neutral-400">
+          Témoignages
+        </p>
+        <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
         Ils ont <span class="text-neutral-400">franchi le cap</span>
       </h2>
     </div>
@@ -46,4 +48,5 @@ const testimonials = [
       ))}
     </div>
   </div>
+  </Reveal>
 </section>

@@ -1,5 +1,6 @@
 ---
 import PricingCard from '../ui/PricingCard.astro';
+import Reveal from '../ui/Reveal.vue';
 
 const plans = [
   {
@@ -46,11 +47,12 @@ const plans = [
 ---
 
 <section id="tarifs" class="border-b border-neutral-800">
-  <div class="mx-auto max-w-6xl px-6 py-20">
-    <div class="mb-16 max-w-2xl space-y-4">
-      <p class="text-sm font-medium uppercase tracking-widest text-neutral-400">
-        Tarifs
-      </p>
+  <Reveal client:visible>
+    <div class="mx-auto max-w-6xl px-6 py-20">
+      <div class="mb-16 max-w-2xl space-y-4">
+        <p class="text-sm font-medium uppercase tracking-widest text-neutral-400">
+          Tarifs
+        </p>
       <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
         Choisissez la formule qui <span class="text-neutral-400">vous convient</span>
       </h2>
@@ -69,4 +71,5 @@ const plans = [
       ))}
     </div>
   </div>
+  </Reveal>
 </section>
