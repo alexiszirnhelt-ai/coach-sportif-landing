@@ -11,14 +11,17 @@ const navLinks = [
 ---
 
 <header class="border-b border-neutral-800">
-  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 text-lg font-semibold">
-      <span class="grid h-8 w-8 place-items-center rounded-md border border-neutral-700">
-        <span class="h-3 w-3 rounded-sm bg-neutral-100"></span>
-      </span>
-      <span>Jane Doe</span>
-    </a>
+<a href="/" class="flex items-center" aria-label="Jane Doe — Accueil">
+  <img
+    src="/logo.svg"
+    alt="Jane Doe Coaching"
+    class="h-24 w-auto"
+    width="96"
+    height="96"
+  />
+</a>
 
     <!-- Liens desktop (cachés sur mobile) -->
     <ul class="hidden items-center gap-8 md:flex">
